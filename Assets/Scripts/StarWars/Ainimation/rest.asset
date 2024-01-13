@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c0d6bd96c27294ab846e28a2efbbcc, type: 3}
+  m_Name: rest
+  m_EditorClassIdentifier: 
+  loop: 1
+  frames:
+  - ImgIndex: 176
+    ImgPath: FrameSprites/Character/swordman/body_02
+    Delay: 600
+    Position: {x: 203, y: 221}
+    DamageBox:
+    - StartPosition: {x: -17, y: -5, z: 0}
+      OverPosition: {x: 30, y: 10, z: 107}
+  - ImgIndex: 177
+    ImgPath: FrameSprites/Character/swordman/body_02
+    Delay: 150
+    Position: {x: 202, y: 221}
+    DamageBox:
+    - StartPosition: {x: -17, y: -5, z: 0}
+      OverPosition: {x: 30, y: 10, z: 107}
+  - ImgIndex: 178
+    ImgPath: FrameSprites/Character/swordman/body_02
+    Delay: 150
+    Position: {x: 202, y: 221}
+    DamageBox:
+    - StartPosition: {x: -17, y: -5, z: 0}
+      OverPosition: {x: 30, y: 10, z: 107}
+  - ImgIndex: 179
+    ImgPath: FrameSprites/Character/swordman/body_02
+    Delay: 150
+    Position: {x: 202, y: 221}
+    DamageBox:
+    - StartPosition: {x: -17, y: -5, z: 0}
+      OverPosition: {x: 30, y: 10, z: 107}
