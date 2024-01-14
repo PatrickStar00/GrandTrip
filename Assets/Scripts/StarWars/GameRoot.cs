@@ -23,7 +23,7 @@ public class GameRoot : MonoBehaviour
     //渲染帧累计时间
     private float accumilatedTime = 0f;
     //逻辑帧间隔
-    private float frameLength = 1/60f; //30 miliseconds
+    private float frameLength = 1 / 60f; //30 miliseconds
     private int frameCount = 0;
 
     private void Awake()
@@ -43,13 +43,11 @@ public class GameRoot : MonoBehaviour
     //called once per unity frame
     internal void Update()
     {
-        //Basically same logic as FixedUpdate, but we can scale it by adjusting FrameLength
         accumilatedTime = accumilatedTime + Time.deltaTime;
 
-        //in case the FPS is too slow, we may need to update the game multiple times a frame
         while (accumilatedTime > frameLength)
         {
-            s_GameLogic.OnTick(frameLength);
+            GameLogic.OnTick(frameLength);
             accumilatedTime = accumilatedTime - frameLength;
             frameCount++;
         }
