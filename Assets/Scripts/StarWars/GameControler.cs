@@ -12,8 +12,9 @@ public sealed class GameControler
 
     public static void TickGame()
     {
-        //这里是在渲染线程执行的tick，逻辑线程的tick在GameLogicThread.cs文件里执行。
-        //GameShowSystem.Tick();
+        float data = Time.deltaTime;
+
+
 
     }
 

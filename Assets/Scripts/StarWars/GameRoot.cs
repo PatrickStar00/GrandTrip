@@ -51,6 +51,7 @@ public class GameRoot : MonoBehaviour
             accumilatedTime = accumilatedTime - frameLength;
             frameCount++;
         }
-        GameShowSystem.Tick(Time.deltaTime);
+        GfxSystem.Tick(Time.deltaTime);
+        GameControler.TickGame();
     }
 }

@@ -48,6 +48,31 @@ public class PlayerControl
 
     public void Tick()
     {
+        bool keyPressed = false;
+        float x = 0.5f, y = 0.5f;
+        if (GfxSystem.IsKeyPressed(KeyCode.A))
+        {
+            x = 0.1f;
+            keyPressed = true;
+        }
+        else if (GfxSystem.IsKeyPressed(KeyCode.D))
+        {
+            x = 0.9f;
+            keyPressed = true;
+        }
+        if (GfxSystem.IsKeyPressed(KeyCode.W))
+        {
+            y = 0.1f;
+            keyPressed = true;
+        }
+        else if (GfxSystem.IsKeyPressed(KeyCode.S))
+        {
+            y = 0.9f;
+            keyPressed = true;
+        }
+        //if (keyPressed)
+        //    WorldSystem.Instance.UpdateObserverCamera(x, y);
+        return;
 
     }
 

@@ -13,13 +13,19 @@ public class EntityManager
     #endregion
 
     #region Fields
-   
+
     //private Dictionary<int, UserView> m_UserViews = new Dictionary<int, UserView>();
     //private Dictionary<int, NpcView> m_NpcViews = new Dictionary<int, NpcView>();
     //private Dictionary<int, SpaceInfoView> m_SpaceInfoViews = new Dictionary<int, SpaceInfoView>();
 
     #endregion
     private List<CharacterView> m_UserViews = new List<CharacterView>();
+
+    public void CreateUserView(CharacterView userView)
+    {
+        m_UserViews.Add(userView);
+    }
+
 
     public void AdduserView(CharacterView userView)
     {
@@ -34,7 +40,7 @@ public class EntityManager
     public void Tick(float dalta)
     {
         foreach (var userView in m_UserViews)
-        {    
+        {
             userView.Tick(dalta);
         }
     }
