@@ -88,6 +88,8 @@ public class SkillEditorWindow : EditorWindow
     private SkillEditorConfig skillEditorConfig = new SkillEditorConfig();
 
     private IMGUIContainer timeShaft;
+    private IMGUIContainer selectLine;
+
     private VisualElement contentContainer;
     private VisualElement contentViewPort;
 
@@ -109,14 +111,14 @@ public class SkillEditorWindow : EditorWindow
         contentViewPort = MainContentView.Q<VisualElement>("unity-content-viewport");
 
         timeShaft = rootVisualElement.Q<IMGUIContainer>("TimeShaft");
-        //selectLine = rootVisualElement.Q<IMGUIContainer>("SelectLine");
+        selectLine = rootVisualElement.Q<IMGUIContainer>("SelectLine");
 
 
         timeShaft.onGUIHandler = DrawTimeShaft;
 
-        timeShaft = rootVisualElement.Q<IMGUIContainer>("TimeShaft");
-        timeShaft.onGUIHandler = DrawTimeShaft;
+        timeShaft.RegisterCallback<WheelEvent>(TimeShaftWeel);
     }
+
 
     private void DrawTimeShaft()
     {
@@ -131,15 +133,17 @@ public class SkillEditorWindow : EditorWindow
         if (index > 0)
             startOffset = skillEditorConfig.FrameUnitWidth - (contentOffsetPos % skillEditorConfig.FrameUnitWidth);
 
-        int tickStep = 5;
+        int tickStep = SkillEditorConfig.MaxFrameWidthLV + 1 - (skillEditorConfig.FrameUnitWidth / SkillEditorConfig.StandframeUnitWidth);
+        tickStep /= 2;
+        if (tickStep == 0) tickStep = 1;
+
         for (float i = startOffset; i < rect.width; i += skillEditorConfig.FrameUnitWidth)
         {
             if (index % tickStep == 0)
             {
                 Handles.DrawLine(new Vector2(i, rect.height - 10), new Vector2(i, rect.height));
                 string indexStr = index.ToString();
-                GUI.Label(new Rect(i - indexStr.Length * 4.5f, rect.y, 35, 20), indexStr);
-
+                GUI.Label(new Rect(i - indexStr.Length * 4.5f, 0, 35, 20), indexStr);
             }
             else
             {
@@ -147,6 +151,24 @@ public class SkillEditorWindow : EditorWindow
             }
             index++;
         }
+
+
+        Handles.EndGUI();
+    }
+
+    private void TimeShaftWeel(WheelEvent evt)
+    {
+        int delta = (int)evt.delta.y;
+        skillEditorConfig.FrameUnitWidth = Mathf.Clamp(skillEditorConfig.FrameUnitWidth - delta,
+            SkillEditorConfig.StandframeUnitWidth, SkillEditorConfig.MaxFrameWidthLV * SkillEditorConfig.StandframeUnitWidth);
+        timeShaft.MarkDirtyLayout();
+    }
+
+    private void DrawSelectLine(WheelEvent evt)
+    {
+        Handles.BeginGUI();
+        Handles.color = Color.white;
+
 
 
         Handles.EndGUI();
