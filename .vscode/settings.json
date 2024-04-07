@@ -1,6 +1,5 @@
 {
-    "files.exclude":
-    {
+    "files.exclude": {
         "**/.DS_Store": true,
         "**/.git": true,
         "**/.gitignore": true,
@@ -43,9 +42,7 @@
         "**/*.user": true,
         "**/*.userprefs": true,
         "**/*.wav": true,
-        "**/*.csproj":true,
-        "**/*.sln":true,
-        "**/*.bytes":true,
+        "**/*.bytes": true,
         "Assets/.lpproj/": true,
         "Assets/Arts/": true,
         "Assets/Audios/": true,
@@ -70,13 +67,12 @@
         "Tools/": true,
         "ZGame/": true
     },
-
     "files.associations": {
-
-        "*.lua.bytes": "lua" 
+        "*.lua.bytes": "lua"
     },
     "emmylua.codeLens": true,
     "emmylua.spell.enable": false,
     "emmylua.lint.moduleCheck": true,
     "emmylua.lint.codeStyle": true,
+    "dotnet.defaultSolution": "GrandTrip.sln"
 }
