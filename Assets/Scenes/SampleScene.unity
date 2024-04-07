@@ -757,6 +757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputAction: {fileID: -944628639613478452, guid: a3fe6542f5ad43b4ca5a13f38d18fa3a, type: 3}
   Speed: 400
+  Body: {fileID: 0}
 --- !u!1 &2081462742
 GameObject:
   m_ObjectHideFlags: 0
